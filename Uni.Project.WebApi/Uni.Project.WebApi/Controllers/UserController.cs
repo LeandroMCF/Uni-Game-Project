@@ -31,5 +31,20 @@ namespace Uni.Project.WebApi.Controllers
             }
 
         }
+
+        [HttpPost("login")]
+        public IActionResult Login(string email, string password)
+        {
+            try
+            {
+                return Ok(_user.Login(email, password));
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(erro);
+            }
+
+        }
     }
 }

@@ -74,3 +74,4 @@ D:\Uninove\Uni-Game-Project\Uni.Project.WebApi\Uni.Project.WebApi\obj\Debug\net7
 D:\Uninove\Uni-Game-Project\Uni.Project.WebApi\Uni.Project.WebApi\obj\Debug\net7.0\Uni.Project.WebApi.pdb
 D:\Uninove\Uni-Game-Project\Uni.Project.WebApi\Uni.Project.WebApi\obj\Debug\net7.0\Uni.Project.WebApi.genruntimeconfig.cache
 D:\Uninove\Uni-Game-Project\Uni.Project.WebApi\Uni.Project.WebApi\obj\Debug\net7.0\ref\Uni.Project.WebApi.dll
+D:\Uninove\Uni-Game-Project\Uni.Project.WebApi\Uni.Project.WebApi\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
