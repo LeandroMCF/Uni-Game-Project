@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Uninove\\Uni-Game-Project\\Uni.Project.WebApi\\Uni.Project.WebApi\\Uni.Project.WebApi.csproj": {}
+    "C:\\Users\\leand\\Desktop\\Uni-Game-Project\\Uni.Project.WebApi\\Uni.Project.WebApi\\Uni.Project.WebApi.csproj": {}
   },
   "projects": {
-    "D:\\Uninove\\Uni-Game-Project\\Uni.Project.WebApi\\Uni.Project.WebApi\\Uni.Project.WebApi.csproj": {
+    "C:\\Users\\leand\\Desktop\\Uni-Game-Project\\Uni.Project.WebApi\\Uni.Project.WebApi\\Uni.Project.WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Uninove\\Uni-Game-Project\\Uni.Project.WebApi\\Uni.Project.WebApi\\Uni.Project.WebApi.csproj",
+        "projectUniqueName": "C:\\Users\\leand\\Desktop\\Uni-Game-Project\\Uni.Project.WebApi\\Uni.Project.WebApi\\Uni.Project.WebApi.csproj",
         "projectName": "Uni.Project.WebApi",
-        "projectPath": "D:\\Uninove\\Uni-Game-Project\\Uni.Project.WebApi\\Uni.Project.WebApi\\Uni.Project.WebApi.csproj",
+        "projectPath": "C:\\Users\\leand\\Desktop\\Uni-Game-Project\\Uni.Project.WebApi\\Uni.Project.WebApi\\Uni.Project.WebApi.csproj",
         "packagesPath": "C:\\Users\\leand\\.nuget\\packages\\",
-        "outputPath": "D:\\Uninove\\Uni-Game-Project\\Uni.Project.WebApi\\Uni.Project.WebApi\\obj\\",
+        "outputPath": "C:\\Users\\leand\\Desktop\\Uni-Game-Project\\Uni.Project.WebApi\\Uni.Project.WebApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\leand\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -90,7 +90,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

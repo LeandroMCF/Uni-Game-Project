@@ -12,8 +12,8 @@ using Uni.Project.WebApi.Context;
 namespace Uni.Project.WebApi.Migrations
 {
     [DbContext(typeof(UniContext))]
-    [Migration("20230509002146_MinhaMigracao")]
-    partial class MinhaMigracao
+    [Migration("20230515233413_attPassword")]
+    partial class attPassword
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,13 +35,19 @@ namespace Uni.Project.WebApi.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
 
                     b.Property<int>("Permission")
                         .HasColumnType("int");

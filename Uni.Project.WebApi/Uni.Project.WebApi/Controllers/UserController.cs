@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Uni.Project.WebApi.Domain;
+using Uni.Project.WebApi.Enum;
 using Uni.Project.WebApi.Interface;
 using Uni.Project.WebApi.Repository;
 
@@ -17,11 +18,12 @@ namespace Uni.Project.WebApi.Controllers
             _user = new UserRepository();
         }
 
-        [HttpPost]
-        public IActionResult CadUser(UserDomain user)
+        [HttpPost("cad/{name}/{email}/{password}")]
+        public IActionResult CadUser(string name, string email, string password)
         {
             try
             {
+                UserDomain user = new UserDomain(name, email, password, DateTime.Now, StatusEnum.allowed, UserEnum.comum);
                 return Ok(_user.CadUser(user));
             }
             catch (Exception erro)
@@ -32,7 +34,7 @@ namespace Uni.Project.WebApi.Controllers
 
         }
 
-        [HttpPost("login")]
+        [HttpPost("login/{email}/{password}")]
         public IActionResult Login(string email, string password)
         {
             try

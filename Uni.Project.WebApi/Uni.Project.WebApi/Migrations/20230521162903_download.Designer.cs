@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Uni.Project.WebApi.Context;
 
@@ -11,9 +12,11 @@ using Uni.Project.WebApi.Context;
 namespace Uni.Project.WebApi.Migrations
 {
     [DbContext(typeof(UniContext))]
-    partial class UniContextModelSnapshot : ModelSnapshot
+    [Migration("20230521162903_download")]
+    partial class download
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,32 +24,6 @@ namespace Uni.Project.WebApi.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("Uni.Project.WebApi.Domain.EvaluationDomain", b =>
-                {
-                    b.Property<Guid>("EvaluationId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreationTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Score")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("EvaluationId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Evaluations");
-                });
 
             modelBuilder.Entity("Uni.Project.WebApi.Domain.UserDomain", b =>
                 {
@@ -86,22 +63,6 @@ namespace Uni.Project.WebApi.Migrations
                     b.HasKey("UserId");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("Uni.Project.WebApi.Domain.EvaluationDomain", b =>
-                {
-                    b.HasOne("Uni.Project.WebApi.Domain.UserDomain", "UserDomain")
-                        .WithMany("EvaluationsDomain")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("UserDomain");
-                });
-
-            modelBuilder.Entity("Uni.Project.WebApi.Domain.UserDomain", b =>
-                {
-                    b.Navigation("EvaluationsDomain");
                 });
 #pragma warning restore 612, 618
         }

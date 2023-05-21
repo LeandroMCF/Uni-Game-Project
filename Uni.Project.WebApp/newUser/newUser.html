@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../style/style.css">
+    <script src="newUser.js"></script>
+    <title>Cadastrar</title>
+</head>
+<body class="body-login">
+    <form>
+        <div class="login-container">
+            <h2 style="color: white;">Cadastre-se</h2><br>
+
+            <div class="block-input">
+                <p style="color: white;">Nome</p>
+                <input id="name" type="text" required>
+            </div>
+
+            <div class="block-input">
+                <p style="color: white;">E-mail</p>
+                <input id="email" type="email" required>
+            </div>
+
+            <div class="block-input">
+                <p style="color: white;">Senha</p>
+                <input id="password" type="password" required>
+            </div>
+
+            <div class="block-input">
+                <p style="color: white;">Confirmar senha</p>
+                <input id="confirm-password" type="password" required>
+            </div><br>
+            
+            <button onclick="cad()" type="button">Cadastrar</button> <br>
+
+            <a href="../login/index.html" style="color: white;">Login</a>
+
+            <p id="loading" style="text-align: justify; color: #4caf50; display: none;">Carregando...</p>
+            <p id="campError" style="text-align: justify; color: white; display: none;">Todos os campos devem ser preenchidos</p>
+            <p id="lenghPassword" style="text-align: justify; color: white; display: none;">A senha deve ter 8 caracteres ou mais</p>
+            <p id="emailError" style="text-align: justify; color: white; display: none;">Email já cadastrado</p>
+            <p id="passwordError" style="text-align: justify; color: white; display: none;">As senhas devem ser iguais</p>
+            <p id="serverError" style="text-align: justify; color: white; display: none;">Erro no servidor, tente novamente mais tarde</p>
+        </div>
+    </form>
+</body>
+</html>

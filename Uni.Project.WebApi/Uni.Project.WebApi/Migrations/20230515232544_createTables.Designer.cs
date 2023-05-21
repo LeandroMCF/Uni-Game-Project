@@ -12,8 +12,8 @@ using Uni.Project.WebApi.Context;
 namespace Uni.Project.WebApi.Migrations
 {
     [DbContext(typeof(UniContext))]
-    [Migration("20230509002959_setItens")]
-    partial class setItens
+    [Migration("20230515232544_createTables")]
+    partial class createTables
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
