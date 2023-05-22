@@ -69,6 +69,21 @@ body{
     background-color: black;
   }
 
+  .rt-side{
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .link-btn{
+    text-decoration: none;
+    color: white;
+  }
+  .link-btn:hover{
+    border-bottom: 1px solid white;
+  }
+
   .set-header{
     width: 100%;
     display: flex;
@@ -80,5 +95,55 @@ body{
     color: white;
     display: flex;
     flex-direction: column;
+    align-items: center;
+  }
+
+  .botao-download{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 20px;
+    color: #ffffff;
+    transition: box-shadow 0.3s ease-in-out; 
+  }
+  .btn-download{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4caf50;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    transition: box-shadow 0.3s; 
+  }
+  .btn-evaluation{
+    background-color: blue;
+  }
+  .btn-download:hover{
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6); 
+    transition: 0.3s; 
+    transform: scale(1.01);
+  }
+  .botao-download:hover{
+    transition: 0.3s; 
+    transform: scale(1.0);
+  }
+
+  #corpo{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .aling-btn-text{
+    width: 50%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
   }
