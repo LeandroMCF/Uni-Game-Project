@@ -23,7 +23,7 @@ namespace Uni.Project.WebApi.Controllers
         {
             try
             {
-                UserDomain user = new UserDomain(name, email, password, DateTime.Now, StatusEnum.allowed, UserEnum.comum);
+                UserDomain user = new UserDomain(name, email, password, DateTime.Now, DateTime.Now, StatusEnum.allowed, UserEnum.comum);
                 return Ok(_user.CadUser(user));
             }
             catch (Exception erro)

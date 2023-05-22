@@ -41,6 +41,10 @@ public partial class UniContext : DbContext
             .HasMaxLength(150)
             .IsRequired();
 
+        modelBuilder.Entity<EvaluationDomain>()
+            .Property(u => u.UpdateTime)
+            .IsRequired();
+
         modelBuilder.Entity<UserDomain>()
             .Property(u => u.CreationTime)
             .IsRequired();
@@ -69,6 +73,10 @@ public partial class UniContext : DbContext
 
         modelBuilder.Entity<EvaluationDomain>()
             .Property(u => u.CreationTime)
+            .IsRequired();
+
+        modelBuilder.Entity<EvaluationDomain>()
+            .Property(u => u.UpdateTime)
             .IsRequired();
 
         modelBuilder.Entity<EvaluationDomain>()
