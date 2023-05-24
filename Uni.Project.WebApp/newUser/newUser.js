@@ -29,8 +29,6 @@ function cad() {
         loading.style.display = "none"
         return passwordError.style.display = "block"
     }
-    
-    debugger
 
     xhr.open('POST', 'https://localhost:7033/api/User/cad/'+ name +"/"+ email +"/"+ password);
     xhr.setRequestHeader('Content-Type', 'application/json');

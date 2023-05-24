@@ -28,9 +28,11 @@
         <div class="aling-evaluations">
             <h1 style="color: black;">Avaliações</h1>
             <br/>
-            <h2 style="color: black;">Sua avaliação:</h2>
+            <h2 id="evaluation-title" style="color: black; display: none;">Sua avaliação:</h2>
+            <p style="color: black;" id="loading">Carregando...</p>
+
             <div class="my-Evaluation">
-                <button>Editar</button>
+                <button onclick="edit()">Editar</button>
                 <div class="score">
                     <p id="score" style="font-size: 35px; text-align: center; border-bottom: solid 3px #4caf50;"></p>
                 </div>
@@ -39,7 +41,31 @@
                     <p id="description"></p>
                 </div>
             </div>
+
+            <div class="edit-evaluation">
+                <div class="aling-btn-save">
+                    <button id="save-btn-update" style="display: none; align-items: center; justify-content: center;" onclick="save()">Salvar</button>
+                    <button id="save-btn-create" style="display: none; align-items: center; justify-content: center;" onclick="saveCreate()">Salvar</button>
+                    <button onclick="cancel()">Cencelar</button>
+                </div>
+                <div class="score">
+                    <input type="number" id="scoreEdit" name="score" min="0" max="5">
+                </div>
+                <div class="description">
+                    <h3>Descrição</h3>
+                    <textarea maxlength="150" id="descriptionEdit" name="description" rows="4"></textarea>
+                </div>
+            </div>
+
+            <div id="aling-btns" style="width: 100%; border-bottom: 3px solid black; height: 130px; display: none; align-items: start; justify-content: start;">
+                <button onclick="download()" style="display: none; justify-content: center; align-items: center" id="btn-download">Baixe agora!</button>
+                <button onclick="evaluating()" style="display: none; justify-content: center; align-items: center;" id="btn-evaluation">Avalie já!</button>
+            </div>
+
+            <br>
+
+            
         </div>
-        </div>
+    </div>
 </body>
 </html>

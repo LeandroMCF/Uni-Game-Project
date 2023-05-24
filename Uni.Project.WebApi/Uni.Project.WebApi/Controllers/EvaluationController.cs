@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Uni.Project.WebApi.Context;
 using Uni.Project.WebApi.Domain;
 using Uni.Project.WebApi.Interface;
 using Uni.Project.WebApi.Migrations;
@@ -35,17 +36,20 @@ namespace Uni.Project.WebApi.Controllers
             }
         }
 
-        [HttpPut("evaluating/{score}/{description}/{idUser}/{IdEvaluation}")]
-        public IActionResult UpdateEvaluation(string IdEvaluation, string IdUser, int score, string description)
+        [HttpPut("evaluating/{score}/{description}/{idUser}")]
+        public IActionResult UpdateEvaluation(string IdUser, int score, string description)
         {
+            UniContext ctx = new UniContext();
+            EvaluationDomain existEvaluation = ctx.Evaluations.FirstOrDefault(x => x.UserId.ToString() == IdUser);
+
             EvaluationDomain evaluation = new EvaluationDomain(new Guid(IdUser), DateTime.Now, DateTime.Now, score, description);
 
-            evaluation.EvaluationId = new Guid(IdEvaluation);
+            evaluation.EvaluationId = existEvaluation.EvaluationId;
 
             try
             {
-                _evaluation.UpdateEvaluation(IdEvaluation, IdUser, evaluation);
-                return Ok("Avaliação cadastrada com sucesso!");
+                _evaluation.UpdateEvaluation(existEvaluation.EvaluationId.ToString(), IdUser, evaluation);
+                return Ok("Avaliação editada com sucesso!");
             }
             catch (Exception)
             {
@@ -59,7 +63,7 @@ namespace Uni.Project.WebApi.Controllers
         {
             try
             {
-                _evaluation.RemoveEvaluation(IdEvaluation, IdUser);
+                _evaluation.RemoveEvaluation(IdUser);
                 return Ok("Avaliação deletada com sucesso!");
             }
             catch (Exception)

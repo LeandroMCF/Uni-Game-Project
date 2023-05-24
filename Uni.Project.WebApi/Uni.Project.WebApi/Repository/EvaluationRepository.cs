@@ -55,9 +55,9 @@ namespace Uni.Project.WebApi.Repository
             return ctx.Evaluations.FirstOrDefault(x => x.UserId.ToString() == idUser);
         }
 
-        public void RemoveEvaluation(string IdEvaluation, string IdUser)
+        public void RemoveEvaluation(string IdUser)
         {
-            EvaluationDomain evaluation = ctx.Evaluations.FirstOrDefault(x => x.UserId.ToString() == IdUser && x.EvaluationId.ToString() == IdEvaluation);
+            EvaluationDomain evaluation = ctx.Evaluations.FirstOrDefault(x => x.UserId.ToString() == IdUser);
             ctx.Evaluations.Remove(evaluation);
             ctx.SaveChanges();
         }
