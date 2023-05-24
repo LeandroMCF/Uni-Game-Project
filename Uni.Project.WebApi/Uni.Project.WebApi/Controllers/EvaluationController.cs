@@ -35,12 +35,74 @@ namespace Uni.Project.WebApi.Controllers
             }
         }
 
+        [HttpPut("evaluating/{score}/{description}/{idUser}/{IdEvaluation}")]
+        public IActionResult UpdateEvaluation(string IdEvaluation, string IdUser, int score, string description)
+        {
+            EvaluationDomain evaluation = new EvaluationDomain(new Guid(IdUser), DateTime.Now, DateTime.Now, score, description);
+
+            evaluation.EvaluationId = new Guid(IdEvaluation);
+
+            try
+            {
+                _evaluation.UpdateEvaluation(IdEvaluation, IdUser, evaluation);
+                return Ok("Avaliação cadastrada com sucesso!");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        [HttpDelete("delete/evaluating/{IdUser}/{IdEvaluation}")]
+        public IActionResult Evaluating(string IdEvaluation, string IdUser)
+        {
+            try
+            {
+                _evaluation.RemoveEvaluation(IdEvaluation, IdUser);
+                return Ok("Avaliação deletada com sucesso!");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         [HttpGet("all")]
         public List<EvaluationDomain> GetAllEvaluation()
         {
             try
             {
                 return _evaluation.GetAllEvaluations();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        [HttpGet("{idUser}")]
+        public EvaluationDomain GetEvaluation(string idUser)
+        {
+            try
+            {
+                return _evaluation.GetEvaluation(idUser);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        [HttpGet("verify/{idUser}")]
+        public string IsAllow(string IdUser)
+        {
+            try
+            {
+                return _evaluation.AlloyAccess(IdUser);
             }
             catch (Exception)
             {

@@ -19,9 +19,46 @@ function mount() {
         var userName = document.getElementById('userName');
         
         userName.textContent = decodedToken.unique_name;
+
+        var isDownload = decodedToken.IdDownload;
+
+        if (isDownload) {
+            getEvaluation(decodedToken.nameid)
+        }
+        else{
+            console.log(false)
+        }
     } 
     else {
 
         window.location.href = "../login/index.html";
     }
+}
+
+function getEvaluation(id) {
+    console.log(id)
+
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://localhost:7033/api/Evaluation/'+id);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function() {
+        
+        var jsonEv = JSON.parse(xhr.responseText)
+
+        console.log(jsonEv)
+        console.log(jsonEv.score.toString())
+        console.log(jsonEv.description.toString())
+
+        var score = document.getElementById("score");
+        var description = document.getElementById("description");
+
+        score.textContent = jsonEv.score.toString();
+        description.textContent = jsonEv.description.toString();
+    };
+    xhr.onerror = function() {
+
+        loading.style.display = "none"
+        serverError.style.display = "block"
+    };
+    xhr.send();
 }

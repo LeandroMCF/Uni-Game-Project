@@ -1,6 +1,7 @@
 ﻿using Uni.Project.WebApi.Context;
 using Uni.Project.WebApi.Domain;
 using Uni.Project.WebApi.Interface;
+using Uni.Project.WebApi.Migrations;
 
 namespace Uni.Project.WebApi.Repository
 {
@@ -10,23 +11,37 @@ namespace Uni.Project.WebApi.Repository
 
         public void AddEvaluation(EvaluationDomain evaluation)
         {
-            var user = ctx.Users.FirstOrDefault(x => x.UserId == evaluation.UserId);
-            evaluation.UserDomain = user;
-            ctx.Evaluations.Add(evaluation);
-            ctx.SaveChanges();
+            EvaluationDomain evaluationCheck = ctx.Evaluations.FirstOrDefault(x => x.UserId == evaluation.UserId);
+            if (evaluationCheck == null)
+            {
+                var user = ctx.Users.FirstOrDefault(x => x.UserId == evaluation.UserId);
+
+                evaluation.UserDomain = user;
+                ctx.Evaluations.Add(evaluation);
+                ctx.SaveChanges();
+            }
         }
 
-        public bool AlloyAccess(string IdEvaluation, string IdUser)
+        public string AlloyAccess(string IdUser)
         {
-            EvaluationDomain evaluation = ctx.Evaluations.FirstOrDefault(x => x.UserId.ToString() == IdUser && x.EvaluationId.ToString() == IdEvaluation);
+            UserDomain user = ctx.Users.FirstOrDefault(x => x.UserId == new Guid(IdUser));
 
-            if (evaluation == null)
+            if (user.Download != true)
             {
-                return false;
+                return "notAllow-noDownload";
             }
             else
             {
-                return true;
+                EvaluationDomain evaluation = ctx.Evaluations.FirstOrDefault(x => x.UserId.ToString() == IdUser);
+
+                if (evaluation != null)
+                {
+                    return "notAllow-AllRdEv";
+                }
+                else
+                {
+                    return "Allow";
+                }
             }
         }
 
@@ -35,9 +50,9 @@ namespace Uni.Project.WebApi.Repository
             return ctx.Evaluations.ToList();
         }
 
-        public EvaluationDomain GetEvaluation(string idEvaluation)
+        public EvaluationDomain GetEvaluation(string idUser)
         {
-            return ctx.Evaluations.FirstOrDefault(x => x.EvaluationId.ToString() == idEvaluation);
+            return ctx.Evaluations.FirstOrDefault(x => x.UserId.ToString() == idUser);
         }
 
         public void RemoveEvaluation(string IdEvaluation, string IdUser)

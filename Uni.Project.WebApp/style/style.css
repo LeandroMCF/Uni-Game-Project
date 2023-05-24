@@ -98,17 +98,6 @@ body{
     align-items: center;
   }
 
-  .botao-download{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    font-size: 20px;
-    color: #ffffff;
-    transition: box-shadow 0.3s ease-in-out; 
-  }
   .btn-download{
     width: 100%;
     height: 70px;
@@ -118,6 +107,10 @@ body{
     background-color: #4caf50;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
     transition: box-shadow 0.3s; 
+    cursor: pointer;
+    font-size: 20px;
+    color: #ffffff;
+    border: none;
   }
   .btn-evaluation{
     background-color: blue;
@@ -146,4 +139,52 @@ body{
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .aling-evaluations{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .my-Evaluation{
+    width: 100%;
+    height: 130px;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    padding: 20px;
+    color: black;
+    border-bottom: 3px solid black;
+  }
+  .my-Evaluation button{
+    color: black;
+    background-color: #ffffff;
+    border: none;
+    border-bottom: 1px solid black;
+    transition: 0.3s;
+  }
+  .my-Evaluation button:hover{
+    color: white;
+    background-color: black;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .score{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .description{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
   }

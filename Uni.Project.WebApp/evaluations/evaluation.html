@@ -12,6 +12,10 @@
     <div class="container">
         <div class="set-header">
             <img src="logo.png" alt="Logo" id="logo">
+            <div class="rt-side">
+                <a class="link-btn" href="../home/home.html">Download</a>
+                <a class="link-btn" href="../evaluations/evaluation.html">Avaliações</a>
+            </div>
             <div id="informacoes-usuario">
                 <p id="userName"></p>
                 <a href="../login/index.html" style="text-decoration: none; border: none; border-bottom: 1px solid white; cursor: pointer; color: white; background-color: black;">Sair</a>
@@ -21,6 +25,21 @@
 </header>
 <body  onload="mount()">
     <div class="container">
-    </div>
+        <div class="aling-evaluations">
+            <h1 style="color: black;">Avaliações</h1>
+            <br/>
+            <h2 style="color: black;">Sua avaliação:</h2>
+            <div class="my-Evaluation">
+                <button>Editar</button>
+                <div class="score">
+                    <p id="score" style="font-size: 35px; text-align: center; border-bottom: solid 3px #4caf50;"></p>
+                </div>
+                <div class="description">
+                    <h3>Descrição</h3>
+                    <p id="description"></p>
+                </div>
+            </div>
+        </div>
+        </div>
 </body>
 </html>

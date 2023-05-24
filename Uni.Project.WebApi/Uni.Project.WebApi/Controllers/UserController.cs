@@ -48,5 +48,20 @@ namespace Uni.Project.WebApi.Controllers
             }
 
         }
+
+        [HttpPut("download/{id}")]
+        public IActionResult Download(string id)
+        {
+            try
+            {
+                return Ok(_user.Download(id));
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(erro);
+            }
+
+        }
     }
 }

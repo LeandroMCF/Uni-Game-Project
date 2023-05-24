@@ -155,5 +155,23 @@ namespace Uni.Project.WebApi.Repository
                 return false;
             }
         }
+
+        public string Download(string id)
+        {
+            UserDomain user = ctx.Users.FirstOrDefault(x => x.UserId.ToString() == id);
+            if (user.Download == false)
+            {
+                user.Download = true;
+                user.UpdateTime = DateTime.Now;
+                ctx.Users.Update(user);
+                ctx.SaveChanges();
+
+                return "user-updated";
+            }
+            else
+            {
+                return "user-downloaded";
+            }
+        }
     }
 }
