@@ -152,3 +152,4 @@ C:\Users\leand\Desktop\Uni-Game-Project\Uni.Project.WebApi\Uni.Project.WebApi\ob
 C:\Users\leand\Desktop\Uni-Game-Project\Uni.Project.WebApi\Uni.Project.WebApi\obj\Debug\net7.0\Uni.Project.WebApi.pdb
 C:\Users\leand\Desktop\Uni-Game-Project\Uni.Project.WebApi\Uni.Project.WebApi\obj\Debug\net7.0\Uni.Project.WebApi.genruntimeconfig.cache
 C:\Users\leand\Desktop\Uni-Game-Project\Uni.Project.WebApi\Uni.Project.WebApi\obj\Debug\net7.0\ref\Uni.Project.WebApi.dll
+C:\Users\leand\Desktop\Uni-Game-Project\Uni.Project.WebApi\Uni.Project.WebApi\bin\Debug\net7.0\Newtonsoft.Json.dll

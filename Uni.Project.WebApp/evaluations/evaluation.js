@@ -8,6 +8,55 @@ function decodeJwtToken(token) {
     return JSON.parse(jsonPayload);
 }
 
+function getAllEv(id) {
+    
+    console.log(id)
+
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://localhost:7033/api/Evaluation/all/'+id);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function() {
+
+        var getJson = JSON.parse(xhr.responseText)
+        var container = document.getElementById("mark-others-evaluation");
+
+        for (var i = 0; i < getJson.length; i++) {
+            
+            var dados = getJson[i];
+            console.log(dados)
+
+            var divInterna = document.createElement("div");
+            divInterna.className = "evaluations";
+    
+            // Adicionar os elementos dentro da div interna
+            var nomeElement = document.createElement("p");
+            nomeElement.style.fontSize = "20px";
+            nomeElement.style.maxWidth = "33%";
+            nomeElement.textContent = dados.UserIdNavigation.Name;
+    
+            var notaElement = document.createElement("h3");
+            notaElement.style.fontSize = "30px";
+            notaElement.style.maxWidth = "33%";
+            notaElement.textContent = dados.Score;
+    
+            var comentarioElement = document.createElement("p");
+            comentarioElement.style.maxWidth = "33%";
+            comentarioElement.textContent = dados.Description;
+    
+            divInterna.appendChild(nomeElement);
+            divInterna.appendChild(notaElement);
+            divInterna.appendChild(comentarioElement);
+            
+            container.appendChild(divInterna);
+        }
+    };
+    xhr.onerror = function() {
+
+        console.log("ERR")
+    };
+    xhr.send();
+}
+
 function mount() {
     // Obter token do Local Storage
     var token = localStorage.getItem('token');
@@ -15,23 +64,11 @@ function mount() {
     if (token) {
 
         var decodedToken = decodeJwtToken(token);
+        getAllEv(decodedToken.nameid)
 
         var userName = document.getElementById('userName');
         
         userName.textContent = decodedToken.unique_name;
-
-        var isDownload = decodedToken.IdDownload;
-
-        // if (isDownload == "True") {
-        //     getEvaluation(decodedToken.nameid)
-        // }
-        // else{
-        //     loading.style.display = "none"
-        //     var aling = document.getElementById('aling-btns');
-        //     var download = document.getElementById('btn-download');
-        //     aling.style.display = 'flex'
-        //     download.style.display = 'flex'
-        // }
 
         const elemento = document.getElementById('loading');
         const elementoEv = document.querySelector('.my-Evaluation');
@@ -155,6 +192,8 @@ function edit() {
     const elementoEv = document.querySelector('.my-Evaluation');
     const btnSave = document.getElementById('save-btn-create');
     const btnUpdate = document.getElementById('save-btn-update');
+    const btnCancel = document.getElementById('cancel-btn-create');
+    const btnCancelUpdate = document.getElementById('cancel-btn-update');
 
     var scoreEdit = document.getElementById("scoreEdit");
     var descriptionEdit = document.getElementById("descriptionEdit");
@@ -166,8 +205,11 @@ function edit() {
 
         btnUpdate.style.display = 'flex';
         btnSave.style.display = 'none';
+        btnCancelUpdate.style.display = 'flex';
+        btnCancel.style.display = 'none';
         elementoEv.style.display = 'none';
         elementoEd.style.display = 'flex'
+        
         var jsonEv = JSON.parse(xhr.responseText)
 
         scoreEdit.value = jsonEv.score;
@@ -242,6 +284,17 @@ function cancel() {
     elementoEv.style.display = 'flex';
 }
 
+function cancelCreate() {
+
+    const elementoEd = document.querySelector('.edit-evaluation');
+    const elementoEv = document.getElementById('aling-btns');
+    const btnEvaluation = document.getElementById('btn-evaluation');
+
+    elementoEd.style.display = 'none'
+    elementoEv.style.display = 'flex';
+    btnEvaluation.style.display = 'flex';
+}
+
 function download() {
     // Obter token do Local Storage
     var token = localStorage.getItem('token');
@@ -284,9 +337,15 @@ function evaluating() {
     const btn = document.getElementById('btn-evaluation');
     const btnSave = document.getElementById('save-btn-create');
     const btnUpdate = document.getElementById('save-btn-update');
+    const btnCancel = document.getElementById('cancel-btn-create');
+    const btnCancelUpdate = document.getElementById('cancel-btn-update');
+    const aling = document.getElementById('aling-btns');
 
+    aling.style.display = 'none'
     btn.style.display = 'none';
     btnUpdate.style.display = 'none';
     btnSave.style.display = 'flex';
+    btnCancelUpdate.style.display = 'none';
+    btnCancel.style.display = 'flex';
     elementoEd.style.display = 'flex'
 }

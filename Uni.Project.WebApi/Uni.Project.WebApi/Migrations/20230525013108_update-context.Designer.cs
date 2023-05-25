@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Uni.Project.WebApi.Context;
 
@@ -11,9 +12,11 @@ using Uni.Project.WebApi.Context;
 namespace Uni.Project.WebApi.Migrations
 {
     [DbContext(typeof(UniContext))]
-    partial class UniContextModelSnapshot : ModelSnapshot
+    [Migration("20230525013108_update-context")]
+    partial class updatecontext
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

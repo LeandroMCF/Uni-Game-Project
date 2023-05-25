@@ -24,13 +24,14 @@
     </div>
 </header>
 <body  onload="mount()">
-    <div class="container">
-        <div class="aling-evaluations">
+    <div style="flex-direction: column;" class="container">
+        <div style="display: flex; flex-direction: column;">
             <h1 style="color: black;">Avaliações</h1>
             <br/>
             <h2 id="evaluation-title" style="color: black; display: none;">Sua avaliação:</h2>
             <p style="color: black;" id="loading">Carregando...</p>
-
+        </div>
+        <div class="aling-evaluations">
             <div class="my-Evaluation">
                 <button onclick="edit()">Editar</button>
                 <div class="score">
@@ -46,7 +47,8 @@
                 <div class="aling-btn-save">
                     <button id="save-btn-update" style="display: none; align-items: center; justify-content: center;" onclick="save()">Salvar</button>
                     <button id="save-btn-create" style="display: none; align-items: center; justify-content: center;" onclick="saveCreate()">Salvar</button>
-                    <button onclick="cancel()">Cencelar</button>
+                    <button id="cancel-btn-update" style="display: none; align-items: center; justify-content: center;" onclick="cancel()">Cencelar</button>
+                    <button id="cancel-btn-create" style="display: none; align-items: center; justify-content: center;" onclick="cancelCreate()">Cencelar</button>
                 </div>
                 <div class="score">
                     <input type="number" id="scoreEdit" name="score" min="0" max="5">
@@ -64,7 +66,9 @@
 
             <br>
 
-            
+            <div id="mark-others-evaluation" class="others-evaluation">
+                
+            </div>
         </div>
     </div>
 </body>

@@ -20,7 +20,7 @@
         public int Score { get; set; }
         public string Description { get; set; }
 
-        public UserDomain UserDomain { get; set; }
+        public virtual UserDomain UserIdNavigation { get; set; }
 
         public override bool Equals(object? obj)
         {

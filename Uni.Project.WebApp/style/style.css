@@ -146,6 +146,7 @@ body{
     height: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
   .my-Evaluation{
     width: 100%;
@@ -254,4 +255,25 @@ body{
     color: #ffffff;
     font-size: 20px;
     cursor: pointer;
+  }
+
+  .others-evaluation{
+    width: 100%;
+    height: 300px;
+    margin-bottom: 10px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .evaluations{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: black;
+    justify-content: space-between;
   }

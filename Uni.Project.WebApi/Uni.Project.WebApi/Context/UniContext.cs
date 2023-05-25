@@ -67,8 +67,8 @@ public partial class UniContext : DbContext
             .HasKey(u => u.EvaluationId);
 
         modelBuilder.Entity<EvaluationDomain>()
-            .HasOne(m => m.UserDomain)
-            .WithMany(m => m.EvaluationsDomain)
+            .HasOne(m => m.UserIdNavigation)
+            .WithMany(m => m.Evaluations)
             .HasForeignKey(m => m.UserId);
 
         modelBuilder.Entity<EvaluationDomain>()

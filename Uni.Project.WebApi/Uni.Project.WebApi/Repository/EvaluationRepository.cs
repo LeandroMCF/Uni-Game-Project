@@ -1,4 +1,6 @@
-﻿using Uni.Project.WebApi.Context;
+﻿using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
+using Uni.Project.WebApi.Context;
 using Uni.Project.WebApi.Domain;
 using Uni.Project.WebApi.Interface;
 using Uni.Project.WebApi.Migrations;
@@ -16,7 +18,7 @@ namespace Uni.Project.WebApi.Repository
             {
                 var user = ctx.Users.FirstOrDefault(x => x.UserId == evaluation.UserId);
 
-                evaluation.UserDomain = user;
+                evaluation.UserIdNavigation = user;
                 ctx.Evaluations.Add(evaluation);
                 ctx.SaveChanges();
             }
@@ -45,9 +47,20 @@ namespace Uni.Project.WebApi.Repository
             }
         }
 
-        public List<EvaluationDomain> GetAllEvaluations()
+        public string GetAllEvaluations(string userId)
         {
-            return ctx.Evaluations.ToList();
+            var evaluations = ctx.Evaluations
+                .Where(x => x.UserId != new Guid(userId))
+                .Include(x => x.UserIdNavigation)
+                .ToList();
+
+            var settings = new JsonSerializerSettings
+            {
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            };
+
+            var json = JsonConvert.SerializeObject(evaluations, settings);
+            return json;
         }
 
         public EvaluationDomain GetEvaluation(string idUser)

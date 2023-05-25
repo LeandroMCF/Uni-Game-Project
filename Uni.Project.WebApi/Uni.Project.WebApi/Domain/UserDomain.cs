@@ -27,6 +27,6 @@ namespace Uni.Project.WebApi.Domain
         public StatusEnum Status { get; set; }
         public UserEnum Permission { get; set; }
 
-        public virtual ICollection<EvaluationDomain> EvaluationsDomain { get; set; }
+        public virtual ICollection<EvaluationDomain> Evaluations { get; set; }
     }
 }

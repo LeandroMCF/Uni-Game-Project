@@ -62,8 +62,6 @@ function download() {
         
 }
 
-
-
 function goEvaluations() {
     window.location.href = "../evaluations/evaluation.html"
   }

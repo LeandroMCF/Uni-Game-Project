@@ -7,7 +7,7 @@ namespace Uni.Project.WebApi.Interface
         public void AddEvaluation(EvaluationDomain evaluation);
         public void RemoveEvaluation(string IdUser);
         public void UpdateEvaluation(string IdEvaluation, string IdUser, EvaluationDomain evaluation);
-        public List<EvaluationDomain> GetAllEvaluations();
+        public string GetAllEvaluations(string userId);
         public EvaluationDomain GetEvaluation(string idUser);
         public string AlloyAccess(string IdUser);
     }

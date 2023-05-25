@@ -73,12 +73,12 @@ namespace Uni.Project.WebApi.Controllers
             }
         }
 
-        [HttpGet("all")]
-        public List<EvaluationDomain> GetAllEvaluation()
+        [HttpGet("all/{userId}")]
+        public string GetAllEvaluation(string userId)
         {
             try
             {
-                return _evaluation.GetAllEvaluations();
+                return _evaluation.GetAllEvaluations(userId);
             }
             catch (Exception)
             {
