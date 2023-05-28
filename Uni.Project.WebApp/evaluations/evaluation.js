@@ -27,25 +27,35 @@ function getAllEv(id) {
 
             var divInterna = document.createElement("div");
             divInterna.className = "evaluations";
+
+            var alinhamentoDiv1 = document.createElement("div");
+            alinhamentoDiv1.className = "aling-intern-evaluation";
+
+            var alinhamentoDiv2 = document.createElement("div");
+            alinhamentoDiv2.className = "aling-intern-evaluation";
+
+            var alinhamentoDiv3 = document.createElement("div");
+            alinhamentoDiv3.className = "aling-intern-evaluation";
     
             // Adicionar os elementos dentro da div interna
             var nomeElement = document.createElement("p");
             nomeElement.style.fontSize = "20px";
-            nomeElement.style.maxWidth = "33%";
             nomeElement.textContent = dados.UserIdNavigation.Name;
     
             var notaElement = document.createElement("h3");
             notaElement.style.fontSize = "30px";
-            notaElement.style.maxWidth = "33%";
             notaElement.textContent = dados.Score;
     
             var comentarioElement = document.createElement("p");
-            comentarioElement.style.maxWidth = "33%";
             comentarioElement.textContent = dados.Description;
+
+            alinhamentoDiv1.appendChild(nomeElement)
+            alinhamentoDiv2.appendChild(notaElement)
+            alinhamentoDiv3.appendChild(comentarioElement)
     
-            divInterna.appendChild(nomeElement);
-            divInterna.appendChild(notaElement);
-            divInterna.appendChild(comentarioElement);
+            divInterna.appendChild(alinhamentoDiv1);
+            divInterna.appendChild(alinhamentoDiv2);
+            divInterna.appendChild(alinhamentoDiv3);
             
             container.appendChild(divInterna);
         }
@@ -348,4 +358,35 @@ function evaluating() {
     btnCancelUpdate.style.display = 'none';
     btnCancel.style.display = 'flex';
     elementoEd.style.display = 'flex'
+}
+
+function remove() {
+
+    var token = localStorage.getItem('token');
+
+    var decodedToken = decodeJwtToken(token);
+
+    var userId = decodedToken.nameid;   
+
+    let xhr = new XMLHttpRequest();
+    xhr.open('DELETE', 'https://localhost:7033/api/Evaluation/delete/evaluating/'+userId);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            debugger
+            if (xhr.responseText == "Avaliação deletada com sucesso!") {
+                debugger
+                window.location.href = "../home/home.html";
+            }
+            else{
+                debugger
+                console.log("ERR")
+            }
+        } 
+        else {
+            debugger
+            console.log("ERR")
+        }
+    };
+    xhr.send();
 }

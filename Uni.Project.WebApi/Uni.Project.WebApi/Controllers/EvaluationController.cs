@@ -58,8 +58,8 @@ namespace Uni.Project.WebApi.Controllers
             }
         }
 
-        [HttpDelete("delete/evaluating/{IdUser}/{IdEvaluation}")]
-        public IActionResult Evaluating(string IdEvaluation, string IdUser)
+        [HttpDelete("delete/evaluating/{IdUser}")]
+        public IActionResult Evaluating(string IdUser)
         {
             try
             {
