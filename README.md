@@ -55,4 +55,8 @@ Essa string de conexão ("Server=DESKTOP-MELCHIL;Database=Project_Uni;Trusted_Co
 
 Para o cadastro do usuário não existe muito segredo, já para o login é gerado um Token que serve para a validação segura desse usuário na plataforma Web.
 
+<<<<<<< HEAD
 Esses são os updates ate agora, qualquer coisa é só entrar em contato comigo!
+=======
+Esses são os updates ate agora, qualquer coisa é só entrar em contato comigo!
+>>>>>>> develop

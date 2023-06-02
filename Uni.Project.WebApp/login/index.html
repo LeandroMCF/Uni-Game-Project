@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../style/style.css">
+    <script src="index.js"></script>
+    <title>Login</title>
+</head>
+<body class="body-login" onload="clean()">
+    <form>
+        <div class="login-container">
+            <h2 style="color: white;">Login</h2><br>
+
+            <div class="block-input">
+                <p style="color: white;">E-mail</p>
+                <input id="email" type="email" required>
+            </div>
+
+            <div class="block-input">
+                <p style="color: white;">Senha</p>
+                <input id="password" type="password" required>
+            </div><br>
+            <button onclick="login()" type="button">Login</button> <br>
+            <a href="../newUser/newUser.html" style="color: white;">Cadastre-se</a>
+            <p id="loading" style="text-align: justify; color: #4caf50; display: none;">Carregando...</p>
+            <p id="emailError" style="text-align: justify; color: white; display: none;">Email não existe ou senha inválida</p>
+            <p id="serverError" style="text-align: justify; color: white; display: none;">Erro no servidor, tente novamente mais tarde</p>
+        </div>
+    </form>
+</body>
+</html>

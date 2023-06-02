@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../style/style.css">
+    <script src="home.js"></script>
+    <title>Home</title>
+</head>
+<header>
+    <div class="container">
+        <div class="set-header">
+            <img src="logo.png" alt="Logo" id="logo">
+            <div class="rt-side">
+                <a class="link-btn" href="../home/home.html">Download</a>
+                <a class="link-btn" href="../evaluations/evaluation.html">Avaliações</a>
+            </div>
+            <div id="informacoes-usuario">
+                <p id="userName"></p>
+                <a 
+                    href="../login/index.html" 
+                    style="
+                        text-decoration: none; 
+                        border: none; 
+                        border-bottom: 1px solid white; 
+                        cursor: pointer; 
+                        color: white; 
+                        background-color: black
+                ;">Sair</a>
+            </div>  
+        </div>
+    </div>
+</header>
+<body  onload="mount()">
+    <div class="container">
+        <div id="corpo">
+            <img src="jogo.png" alt="Jogo" id="jogo">
+            <div class="aling-btn-text">
+                <h1 style="color: black;">Battlefront </h1>
+                <p style="color: black; text-align: justify;" id="descricao">Battlefront é um jogo de ação e tiro, com a finalidade de sobreviver aos ataques inimigos. O game não possui fases, nem final. O objetivo dos jogadores, é fazer com que o personagem principal, portador de uma arma, sobreviva o maior tempo possível, até perder a vida. É um jogo muito versátil, que pode atingir diversos públicos, com foco principal nos mais jovens.</p>
+                <br>
+                <button onclick="download()" class="btn-download">Download</button>
+                <br>
+                <button onclick="goEvaluations()" class="btn-download btn-evaluation">Avaliações</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

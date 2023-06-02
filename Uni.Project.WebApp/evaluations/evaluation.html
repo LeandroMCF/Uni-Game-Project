@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../style/style.css">
+    <script src="evaluation.js"></script>
+    <title>Document</title>
+</head>
+<header>
+    <div class="container">
+        <div class="set-header">
+            <img src="logo.png" alt="Logo" id="logo">
+            <div class="rt-side">
+                <a class="link-btn" href="../home/home.html">Download</a>
+                <a class="link-btn" href="../evaluations/evaluation.html">Avaliações</a>
+            </div>
+            <div id="informacoes-usuario">
+                <p id="userName"></p>
+                <a href="../login/index.html" style="text-decoration: none; border: none; border-bottom: 1px solid white; cursor: pointer; color: white; background-color: black;">Sair</a>
+            </div>  
+        </div>
+    </div>
+</header>
+<body  onload="mount()">
+    <div style="flex-direction: column;" class="container">
+        <div style="display: flex; flex-direction: column;">
+            <h1 style="color: black;">Avaliações</h1>
+            <br/>
+            <h2 id="evaluation-title" style="color: black; display: none;">Sua avaliação:</h2>
+            <p style="color: black;" id="loading">Carregando...</p>
+        </div>
+        <div class="aling-evaluations">
+            <div class="my-Evaluation">
+                <div class="aling-btn-save">
+                    <button onclick="edit()">Editar</button>
+                    <button onclick="remove()">Apagar</button>
+                </div>
+                <div class="score">
+                    <p id="score" style="font-size: 35px; text-align: center; border-bottom: solid 3px #4caf50;"></p>
+                </div>
+                <div class="description">
+                    <h3>Descrição</h3>
+                    <p id="description"></p>
+                </div>
+            </div>
+
+            <div class="edit-evaluation">
+                <div class="aling-btn-save">
+                    <button id="save-btn-update" style="display: none; align-items: center; justify-content: center;" onclick="save()">Salvar</button>
+                    <button id="save-btn-create" style="display: none; align-items: center; justify-content: center;" onclick="saveCreate()">Salvar</button>
+                    <button id="cancel-btn-update" style="display: none; align-items: center; justify-content: center;" onclick="cancel()">Cencelar</button>
+                    <button id="cancel-btn-create" style="display: none; align-items: center; justify-content: center;" onclick="cancelCreate()">Cencelar</button>
+                </div>
+                <div class="score">
+                    <input type="number" id="scoreEdit" name="score" min="0" max="5">
+                </div>
+                <div class="description">
+                    <h3>Descrição</h3>
+                    <textarea maxlength="150" id="descriptionEdit" name="description" rows="4"></textarea>
+                </div>
+            </div>
+
+            <div id="aling-btns" style="width: 100%; border-bottom: 3px solid black; height: 130px; display: none; align-items: start; justify-content: start;">
+                <button onclick="download()" style="display: none; justify-content: center; align-items: center" id="btn-download">Baixe agora!</button>
+                <button onclick="evaluating()" style="display: none; justify-content: center; align-items: center;" id="btn-evaluation">Avalie já!</button>
+            </div>
+
+            <br>
+
+            <div id="mark-others-evaluation" class="others-evaluation">
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>
