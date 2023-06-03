@@ -322,7 +322,7 @@ function download() {
         if (xhr.status === 200) {
             if (xhr.responseText == 'user-updated' || xhr.responseText == 'user-downloaded') {
                 
-                window.location.href = "https://drive.google.com/drive/u/0/";
+                window.location.href = "https://drive.google.com/file/d/1jemKiooX1MA7uuh5PMEaYuKAIuru1TtR/view";
             }
             else{
                 console.log("ERR")
@@ -376,7 +376,7 @@ function remove() {
             debugger
             if (xhr.responseText == "Avaliação deletada com sucesso!") {
                 debugger
-                window.location.href = "../home/home.html";
+                window.location.href = "../home.html";
             }
             else{
                 debugger

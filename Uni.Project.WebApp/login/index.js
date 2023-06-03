@@ -33,7 +33,7 @@ function login() {
 
           loading.style.display = "none"
           localStorage.setItem('token', xhr.responseText)
-          window.location.href = "../home/home.html";
+          window.location.href = "../home.html";
         }
       } 
       else {
