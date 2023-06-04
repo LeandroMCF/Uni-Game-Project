@@ -37,7 +37,7 @@ function download() {
     console.log(userId)
 
     let xhr = new XMLHttpRequest();
-    xhr.open('PUT', 'https://localhost:7033/api/User/download/'+userId);
+    xhr.open('PUT', 'https://uniprojectwebapi20230604171155.azurewebsites.net/api/User/download/'+userId);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = function() {
         if (xhr.status === 200) {

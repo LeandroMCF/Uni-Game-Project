@@ -30,7 +30,7 @@ function cad() {
         return passwordError.style.display = "block"
     }
 
-    xhr.open('POST', 'https://localhost:7033/api/User/cad/'+ name +"/"+ email +"/"+ password);
+    xhr.open('POST', 'https://uniprojectwebapi20230604171155.azurewebsites.net/api/User/cad/'+ name +"/"+ email +"/"+ password);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = async function() {
       if (xhr.status === 200) {

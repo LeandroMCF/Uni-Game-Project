@@ -13,7 +13,7 @@ function getAllEv(id) {
     console.log(id)
 
     let xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://localhost:7033/api/Evaluation/all/'+id);
+    xhr.open('GET', 'https://uniprojectwebapi20230604171155.azurewebsites.net/api/Evaluation/all/'+id);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = function() {
 
@@ -84,7 +84,7 @@ function mount() {
         const elementoEv = document.querySelector('.my-Evaluation');
 
         let xhr = new XMLHttpRequest();
-        xhr.open('GET', 'https://localhost:7033/api/Evaluation/verify/'+decodedToken.nameid);
+        xhr.open('GET', 'https://uniprojectwebapi20230604171155.azurewebsites.net/api/Evaluation/verify/'+decodedToken.nameid);
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.onload = function() {
             
@@ -104,7 +104,7 @@ function mount() {
             }
             else{
 
-                xhr.open('GET', 'https://localhost:7033/api/Evaluation/'+decodedToken.nameid);
+                xhr.open('GET', 'https://uniprojectwebapi20230604171155.azurewebsites.net/api/Evaluation/'+decodedToken.nameid);
                 xhr.setRequestHeader('Content-Type', 'application/json');
                 xhr.onload = function() {
                     elemento.style.display = 'none';
@@ -148,7 +148,7 @@ function getEvaluation(id) {
 
     let xhr = new XMLHttpRequest();
 
-    xhr.open('GET', 'https://localhost:7033/api/Evaluation/verify/'+id);
+    xhr.open('GET', 'https://uniprojectwebapi20230604171155.azurewebsites.net/api/Evaluation/verify/'+id);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = function() {
         
@@ -161,7 +161,7 @@ function getEvaluation(id) {
         }
         else{
 
-            xhr.open('GET', 'https://localhost:7033/api/Evaluation/'+id);
+            xhr.open('GET', 'https://uniprojectwebapi20230604171155.azurewebsites.net/api/Evaluation/'+id);
             xhr.setRequestHeader('Content-Type', 'application/json');
             xhr.onload = function() {
                 elemento.style.display = 'none';
@@ -209,7 +209,7 @@ function edit() {
     var descriptionEdit = document.getElementById("descriptionEdit");
 
     let xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://localhost:7033/api/Evaluation/'+decodedToken.nameid);
+    xhr.open('GET', 'https://uniprojectwebapi20230604171155.azurewebsites.net/api/Evaluation/'+decodedToken.nameid);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = function() {
 
@@ -245,7 +245,7 @@ function save() {
     console.log(descriptionEdit)
 
     let xhr = new XMLHttpRequest();
-    xhr.open('PUT', 'https://localhost:7033/api/Evaluation/evaluating/'+scoreEdit+'/'+descriptionEdit+'/'+decodedToken.nameid);
+    xhr.open('PUT', 'https://uniprojectwebapi20230604171155.azurewebsites.net/api/Evaluation/evaluating/'+scoreEdit+'/'+descriptionEdit+'/'+decodedToken.nameid);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = async function() {
         
@@ -270,7 +270,7 @@ function saveCreate() {
     var descriptionEdit = document.getElementById("descriptionEdit").value;
 
     let xhr = new XMLHttpRequest();
-    xhr.open('POST', 'https://localhost:7033/api/Evaluation/evaluating/'+scoreEdit+'/'+descriptionEdit+'/'+decodedToken.nameid);
+    xhr.open('POST', 'https://uniprojectwebapi20230604171155.azurewebsites.net/api/Evaluation/evaluating/'+scoreEdit+'/'+descriptionEdit+'/'+decodedToken.nameid);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = async function() {
         
@@ -316,7 +316,7 @@ function download() {
     console.log(userId)
 
     let xhr = new XMLHttpRequest();
-    xhr.open('PUT', 'https://localhost:7033/api/User/download/'+userId);
+    xhr.open('PUT', 'https://uniprojectwebapi20230604171155.azurewebsites.net/api/User/download/'+userId);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = function() {
         if (xhr.status === 200) {
@@ -369,7 +369,7 @@ function remove() {
     var userId = decodedToken.nameid;   
 
     let xhr = new XMLHttpRequest();
-    xhr.open('DELETE', 'https://localhost:7033/api/Evaluation/delete/evaluating/'+userId);
+    xhr.open('DELETE', 'https://uniprojectwebapi20230604171155.azurewebsites.net/api/Evaluation/delete/evaluating/'+userId);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = function() {
         if (xhr.status === 200) {

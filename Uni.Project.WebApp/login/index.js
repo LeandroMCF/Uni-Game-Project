@@ -14,7 +14,7 @@ function login() {
     emailError.style.display = "none"
     serverError.style.display = "none"
 
-    xhr.open('POST', 'https://localhost:7033/api/User/login/'+ email +"/"+ password);
+    xhr.open('POST', 'https://uniprojectwebapi20230604171155.azurewebsites.net/api/User/login/'+ email +"/"+ password);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = function() {
       if (xhr.status === 200) {
